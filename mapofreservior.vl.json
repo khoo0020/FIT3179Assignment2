@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "LOCATION OF RESERVOUR'S IN MELBOURNE",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "mercator"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/Water_Supply_Storage_Dams__Major_System_Storage_.json",
+    "format": {"type": "topojson", "feature": "WS_Data"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.ASSET_NAME",
+      "from": {
+        "data": {
+          "url": "https://github.com/khoo0020/FIT3179Assignment2/blob/main/Water_Supply_Storage_Dams__Major_System_Storage_.csv"
+        },
+        "key": "OBJECTID",
+        "fields": ["ASSET_NAME"]
+      }
+    }
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "properties.USABLE_VOLUME",
+      "type": "quantitative",
+      "scale": {"type": "log", "scheme": "blues"},
+      "title": "USABLE VOLUME"
+    },
+    "tooltip": [
+      {
+        "field": "properties.ASSET_NAME",
+        "type": "nominal",
+        "title": "Reservoir"
+      },
+      {
+        "field": "properties.USABLE_VOLUME",
+        "type": "quantitative",
+        "title": "USABLE VOLUME"
+      }
+    ]
+  },
+  "config": {}
+}

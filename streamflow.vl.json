@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "DAILY STREAMFLOWS IN THE FOUR MAJOR RESERVIOR"},
+  "width": 200,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/Water_Supply_-_Daily_Streamflow_(into_Melbourne's_4_Major_Harvesting_Storage_Dams).csv"
+  },
+  "transform": [
+    {"timeUnit": "year", "field": "recorddate", "as": "recordyear"},
+    {
+      "aggregate": [
+        {"op": "mean", "field": "streamflow_ML", "as": "mean_streamflow"}
+      ],
+      "groupby": ["recordyear", "dam"]
+    }
+  ],
+  "mark": "boxplot",
+  "encoding": {
+    "y": {
+      "field": "mean_streamflow",
+      "type": "quantitative",
+      "aggregate": "average",
+      "title": "MEAN RAINFALL PER YEAR IN mm"
+    },
+    "color": {"field": "dam", "type": "nominal", "legend": null,"scale": {"scheme": "blues"}},
+    "x": {"field": "dam", "type": "nominal", "title": "RESERVIOR LOCATIONS"}
+  },
+  "config": {}
+}
