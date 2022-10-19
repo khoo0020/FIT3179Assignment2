@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "title": "ACTIVE SURFACE WATER SITES IN VICTORIA",
+  "projection": {"type": "mercator"},
+  "layer": [
+  {
+  "data": {
+  "url":
+  "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/VICTORIAN_MAP.json",
+  "format": {"type": "topojson", "feature":
+  "VICTORIAN_MAP"}
+  },
+  "mark": {"type": "geoshape", "fill": "white", "stroke":
+  "lightgray"}
+  },
+  {
+  "data": {
+  "url":
+  "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/SWAllSites.csv"
+  },"transform":[{"filter": "datum.ACTIVE == 1"}],
+  "mark": {"type": "circle"},
+  "encoding": {
+  "longitude": {"field": "LONGITUDE", "type":
+  "quantitative"},
+  "latitude": {"field": "LATITUDE", "type":
+  "quantitative"},
+  "color": {
+  "field": "ACTIVE",
+  "type": "nominal",
+  "scale": {"scheme": "blues"}
+  }
+  }
+  }
+  ]
+  }
+  

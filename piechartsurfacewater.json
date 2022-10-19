@@ -16,7 +16,7 @@
       ],
       "groupby": ["ACTIVE"]
     },
-    {"filter": "datum.no_of_attributes > 1"},
+    {"filter": "datum.no_of_attributes > 1"}
   ],
   "mark": "arc",
   "encoding": {
