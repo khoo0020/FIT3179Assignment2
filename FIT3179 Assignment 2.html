@@ -132,6 +132,21 @@
           </div>
       </div>
       <!-- end pure grid group -->
+
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-2" style="text-align: center">
+          <div class="description description-right">
+            <h2>DESCRIPTION</h2>
+            <p>THE PIE CHART STILL NEEDS SOME INTERACTIVITY</p>
+          </div>
+        </div>
+        <div class="pure-u-1-2" style="text-align: center">
+            <div id="surfacePieChart" class="vis-container">
+            </div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
   
 
   
@@ -150,6 +165,7 @@
       var streamflowReservior = "streamflow.vl.json";
       var barGraphReservior = "barvolume.vl.json"
       var pieChartWetLand = "piechart.json"
+      var pieChartSurface = "piechartsurfacewater.json"
   
       vegaEmbed('#reserviorMap', mapOfReservior).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -164,6 +180,9 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
       vegaEmbed('#pieChart', pieChartWetLand).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+      vegaEmbed('#surfacePieChart', pieChartSurface).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     </script>

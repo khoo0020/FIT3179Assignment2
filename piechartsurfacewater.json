@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "NUMBER OF WETLANDS AND LAKES IN VICTORIA"},
+  "width": 300,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/SWAllSites.csv"
+  },"params": [{
+    "name": "pointing",
+    "select": "point"
+  }],
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "count", "field": "ACTIVE", "as": "no_of_attributes"}
+      ],
+      "groupby": ["ACTIVE"]
+    },
+    {"filter": "datum.no_of_attributes > 1"},
+  ],
+  "mark": "arc",
+  "encoding": {
+    "theta": {"field": "no_of_attributes", "type": "quantitative"},
+    "color": {
+      "condition":{
+        "param":"pointing",
+        "field": "ACTIVE",
+        "type": "nominal",
+        "scale": {"scheme": "blues"}
+      },
+      "value":"grey",
+      "scale": {"scheme": "blues"}
+    },
+    "tooltip": [
+      {
+        "field": "ACTIVE",
+        "type": "nominal",
+        "title": "ACTIVE MINES"
+      },
+      {
+        "field": "no_of_attributes",
+        "type": "quantitative",
+        "title": "QUANTITY"
+      }
+    ]
+  },
+  "config": {}
+}
