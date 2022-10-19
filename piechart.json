@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "NUMBER OF WETLANDS AND LAKES IN VICTORIA"},
+  "width": 300,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/Wetland_and_Lake_Assets.csv"
+  },"params": [{
+    "name": "pointing",
+    "select": "point"
+  }],
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "count", "field": "UNITTYPE", "as": "no_of_attributes"}
+      ],
+      "groupby": ["UNITTYPE"]
+    }
+  ],
+  "mark": "arc",
+  "encoding": {
+    "theta": {"field": "no_of_attributes", "type": "quantitative"},
+    "color": {
+      "condition":{
+        "param":"pointing",
+        "field": "UNITTYPE",
+        "type": "nominal",
+        "scale": {"scheme": "blues"}
+      },
+      "value":"grey",
+      "scale": {"scheme": "blues"}
+    },
+    "tooltip": [
+      {
+        "field": "UNITTYPE",
+        "type": "nominal",
+        "title": "UNIT TYPE"
+      },
+      {
+        "field": "no_of_attributes",
+        "type": "quantitative",
+        "title": "QUANTITY"
+      }
+    ]
+  },
+  "config": {}
+}
