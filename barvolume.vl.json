@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "MEAN VOLUME PERCENTAGE PER YEAR IN RESERVIOR"},
+  "width": 200,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/Water_Supply_-_Daily_Volume_observed_for_storage_dams_operated_by_Melbourne_Water.csv"
+  },"params": [{
+    "name": "pointing",
+    "select": "point"
+  }],
+  "transform": [
+    {"timeUnit": "year", "field": "recorddate", "as": "recordyear"},
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "volume_percentfull",
+          "as": "mean_percentage_full"
+        }
+      ],
+      "groupby": ["recordyear", "dam"]
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "mean_percentage_full",
+      "type": "quantitative",
+      "aggregate": "mean",
+      "title": "MEAN VOLUME PERCENTAGE PER YEAR"
+    },
+    "color": {
+      "condition":{
+        "param":"pointing",
+        "field": "dam",
+        "type": "nominal",
+        "scale": {"scheme": "blues"}
+      }
+      ,
+      "value":"grey",
+      "scale": {"scheme": "blues"}
+    },
+    "x": {"field": "dam", "type": "nominal", "title": "RESERVIOR LOCATIONS"}
+  },
+  "config": {}
+}

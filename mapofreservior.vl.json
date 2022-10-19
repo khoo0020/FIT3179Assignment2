@@ -8,6 +8,7 @@
     "url": "https://raw.githubusercontent.com/khoo0020/FIT3179Assignment2/main/Water_Supply_Storage_Dams__Major_System_Storage_.json",
     "format": {"type": "topojson", "feature": "WS_Data"}
   },
+  "params": [{"name": "highlight", "select": "point"}],
   "transform": [
     {
       "lookup": "properties.ASSET_NAME",
@@ -27,7 +28,12 @@
       "type": "quantitative",
       "scale": {"type": "log", "scheme": "blues"},
       "title": "USABLE VOLUME"
-    },
+      },
+      "opacity": {
+      "condition": {"param": "highlight", "value": 1},
+      "value": 0.5
+      },
+      "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
     "tooltip": [
       {
         "field": "properties.ASSET_NAME",
