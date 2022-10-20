@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "NUMBER OF WETLANDS AND LAKES IN VICTORIA"},
+  "title": {"text": "ACTIVE SITES OR NOT"},
   "width": 300,
   "height": 200,
   "data": {

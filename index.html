@@ -119,22 +119,20 @@
         </div>
   
       </div>
-      <!-- end pure grid group -->  
+      <!-- end pure grid group --> 
       <!-- pure grid group -->
       <div class="pure-g">
         <div class="pure-u-1-2" style="text-align: center">
-            <div id="pieChart" class="vis-container">
+            <div id="surfaceMap" class="vis-container">
             </div>
         </div>
         <div class="pure-u-1-2" style="text-align: center">
             <div class="description description-right">
-              <p>WETLAND AND LAKES PLAYS A BIG PART IN THE ECOSYSTEM, AS WEL AS LAKES. 
-                IT ALSO PLAYS A BIG PART TO DETERMINE IF THE CROPS AND SOIL IS HYDRATED. MORE INFORMATION CAN BE FOUND <a href="https://education.nationalgeographic.org/resource/wetland">HERE.</a></p>
+              <h2>ACTIVE SITE OF SURFACE WATER SITES ON THE LEFT</h2>
             </div>
           </div>
       </div>
-      <!-- end pure grid group -->
-
+      <!-- end pure grid group --> 
       <!-- pure grid group -->
       <div class="pure-g">
         <div class="pure-u-1-2" style="text-align: center">
@@ -153,16 +151,20 @@
       <!-- pure grid group -->
       <div class="pure-g">
         <div class="pure-u-1-2" style="text-align: center">
-            <div id="surfaceMap" class="vis-container">
+            <div id="pieChart" class="vis-container">
             </div>
         </div>
         <div class="pure-u-1-2" style="text-align: center">
             <div class="description description-right">
-              <h2>ACTIVE SITE OF SURFACE WATER SITES ON THE LEFT</h2>
+              <p>WETLAND AND LAKES PLAYS A BIG PART IN THE ECOSYSTEM, AS WEL AS LAKES. 
+                IT ALSO PLAYS A BIG PART TO DETERMINE IF THE CROPS AND SOIL IS HYDRATED. MORE INFORMATION CAN BE FOUND <a href="https://education.nationalgeographic.org/resource/wetland">HERE.</a></p>
             </div>
           </div>
       </div>
       <!-- end pure grid group -->
+
+      
+      
   
 
   
@@ -179,10 +181,12 @@
       var mapOfReservior = "mapofreservior.vl.json";
       var rainfallReservior = "boxplotrainfall.vl.json";
       var streamflowReservior = "streamflow.vl.json";
-      var barGraphReservior = "barvolume.vl.json"
-      var pieChartWetLand = "piechart.json"
-      var pieChartSurface = "piechartsurfacewater.json"
-      var mapOfSurface = "mapofSW.vl.json"
+      var barGraphReservior = "barvolume.vl.json";
+      var mapOfSurface = "mapofSW.vl.json";
+      var pieChartSurface = "piechartsurfacewater.json";
+      var pieChartWetLand = "piechart.json";
+      
+      
   
       vegaEmbed('#reserviorMap', mapOfReservior).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -196,14 +200,16 @@
       vegaEmbed('#volumeBar', barGraphReservior).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
-      vegaEmbed('#pieChart', pieChartWetLand).then(function (result) {
+      vegaEmbed('#surfaceMap', mapOfSurface).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
       vegaEmbed('#surfacePieChart', pieChartSurface).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
-      vegaEmbed('#surfaceMap', mmapOfSurface).then(function (result) {
+      vegaEmbed('#pieChart', pieChartWetLand).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
+      
+      
     </script>
   </body>
