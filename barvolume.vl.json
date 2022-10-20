@@ -41,7 +41,14 @@
       "value":"grey",
       "scale": {"scheme": "blues"}
     },
-    "x": {"field": "dam", "type": "nominal", "title": "RESERVIOR LOCATIONS"}
+    "x": {"field": "dam", "type": "nominal", "title": "RESERVIOR LOCATIONS"},
+    "tooltip": [
+      {
+        "field": "dam",
+        "type": "nominal",
+        "title": "RESERVIOR LOCATIONS"
+      }
+    ]
   },
   "config": {}
 }

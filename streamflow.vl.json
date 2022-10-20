@@ -21,7 +21,7 @@
       "field": "mean_streamflow",
       "type": "quantitative",
       "aggregate": "average",
-      "title": "MEAN RAINFALL PER YEAR IN mm"
+      "title": "MEAN RAINFALL PER YEAR IN mL"
     },
     "color": {"field": "dam", "type": "nominal", "legend": null,"scale": {"scheme": "blues"}},
     "x": {"field": "dam", "type": "nominal", "title": "RESERVIOR LOCATIONS"}
